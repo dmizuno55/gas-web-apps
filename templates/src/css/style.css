@@ -22,3 +22,7 @@
 #search-box input[type=text]{
   width: 100px;
 }
+
+#option-box {
+  font-size: 10px;
+}
