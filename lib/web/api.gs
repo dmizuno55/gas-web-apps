@@ -13,7 +13,7 @@ function getEventSources() {
   return adSpots.reduce(function(pre, adSpot) {
     var events = prefixes.reduce(function(list, postfix) {
       var sheetName = adSpot.name + postfix;
-      Array.prototype.push.apply(list, Repository.getEntries(sheetName););
+      Array.prototype.push.apply(list, Repository.getEntries(sheetName));
       return list;
     }, []);
 
