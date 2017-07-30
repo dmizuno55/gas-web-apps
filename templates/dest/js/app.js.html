@@ -17,7 +17,7 @@ App.prototype.setUp = function($) {
     eventTextColor: '#000',
     eventLimit: true,
     eventRender: function(event, element, view) {
-      if (this.searchText === null) {
+      if (this.searchPattern === null) {
         return true;
       }
 
