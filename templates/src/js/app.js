@@ -13,6 +13,7 @@ App.prototype.setUp = function($) {
     timezone: 'local',
     navLinks: true,
     eventTextColor: '#000',
+    eventLimit: true,
     eventAfterRender: function(event, element) {
       var start = moment(event.start).format('M/D HH:mm');
       var end = moment(event.end).format('M/D HH:mm');
@@ -30,9 +31,6 @@ App.prototype.setUp = function($) {
 
   google.script.run.withSuccessHandler(function(result) {
     app.eventSources = result;
-    for (var adSpot in result) {
-      $('#calendar').fullCalendar('addEventSource', result[adSpot]);
-    }
   }).getEventSources();
 
   $('#adspot input').click(function() {
