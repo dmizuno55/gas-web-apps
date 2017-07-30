@@ -22,11 +22,6 @@ function setupCalendar($) {
       timezone: 'local',
       navLinks: true,
       eventTextColor: '#000',
-      events: function(start, end, timezone, callback) {
-        google.script.run.withSuccessHandler(function(result) {
-          callback(result.events);
-        }).getAdSpotCalendar();
-      },
       eventAfterRender: function(event, element) {
         var start = moment(event.start).format('M/D HH:mm');
         var end = moment(event.end).format('M/D HH:mm');
