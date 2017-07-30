@@ -5,6 +5,7 @@ function App() {
 }
 
 App.prototype.setUp = function($) {
+  var self = this;
   $('#calendar').fullCalendar({
     header: {
       left: 'prev,next today',
@@ -17,11 +18,11 @@ App.prototype.setUp = function($) {
     eventTextColor: '#000',
     eventLimit: true,
     eventRender: function(event, element, view) {
-      if (this.searchPattern === null) {
+      if (self.searchPattern === null) {
         return true;
       }
 
-      return this.searchPattern.test(event.title);
+      return self.searchPattern.test(event.title);
     },
     eventAfterRender: function(event, element) {
       var start = moment(event.start).format('M/D HH:mm');
