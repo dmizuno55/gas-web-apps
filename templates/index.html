@@ -15,8 +15,12 @@
 <body>
   <div id="container">
     <div id="side-nav">
-      <input type="text" id="js-search-text"><button id="js-search-button">検索</button>
-      <label><input type="checkbox" id="js-toggle-all">全て表示</label>
+      <div id="search-box">
+        <input type="text" id="js-search-text"><button id="js-search-button">検索</button>
+      </div>
+      <div id="option-box">
+        <label><input type="checkbox" id="js-toggle-all">全て表示</label>
+      </div>
       <?!= Component.getAdSpots() ?>
     </div>
     <div id="main">
