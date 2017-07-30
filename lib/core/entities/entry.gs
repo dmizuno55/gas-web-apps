@@ -2,7 +2,7 @@ function Entry() {
 }
 
 Entry.DATA_ROW_START = 1;
-Entry.DATA_COL_START = 6;
+Entry.DATA_COL_START = 1;
 Entry.DATA_COL_END = 15;
 
 Entry.TEAM_ICON = {
