@@ -12,7 +12,7 @@ Utils.endsWith = function(str, searchWord) {
 Utils.getMonthYearPostfixes = function(date, range) {
   var prefixes = [];
   for (var i = range * -1; i < range; i++) {
-    var d = new Date(date.getFullYear(), date.getMonth() + offset, 1);
+    var d = new Date(date.getFullYear(), date.getMonth() + i, 1);
 
     prefixes.push(Utils.yearMonthPostfix(d));
   }
