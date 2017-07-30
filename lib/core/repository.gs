@@ -9,7 +9,7 @@ Repository.getTargetEntries = function(date) {
   var map = {};
 
   var sheets = SpreadsheetApp.getActive().getSheets();
-  for (var i = 0; i < sheets.lenght; i++) {
+  for (var i = 0; i < sheets.length; i++) {
     var sheet = sheets[i];
 
     var sheetName = sheet.getSheetName();
