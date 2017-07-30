@@ -29,13 +29,15 @@ App.prototype.setUp = function($) {
     }
   });
 
+  var self = this;
+  
   google.script.run.withSuccessHandler(function(result) {
-    app.eventSources = result;
+    self.eventSources = result;
   }).getEventSources();
 
   $('#adspot input').click(function() {
     if ($(this).prop('checked')) {
-      var eventSource = app.eventSources[$(this).val()];
+      var eventSource = self.eventSources[$(this).val()];
       $('#calendar').fullCalendar('addEventSource', eventSource);
     } else {
       $('#calendar').fullCalendar('removeEventSource', $(this).val());

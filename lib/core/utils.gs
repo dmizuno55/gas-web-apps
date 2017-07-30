@@ -1,14 +1,6 @@
 function Utils() {
 }
 
-Utils.isDataSheetName = function(sheetName) {
-  return Utils.hasYearMonthPostfix(sheetName);
-};
-
-Utils.endsWith = function(str, searchWord) {
-  return str.indexOf(searchWord) === str.length - searchWord.length;
-};
-
 Utils.getMonthYearPostfixes = function(date, range) {
   var prefixes = [];
   for (var i = range * -1; i < range; i++) {
@@ -18,14 +10,6 @@ Utils.getMonthYearPostfixes = function(date, range) {
   }
 
   return prefixes;
-};
-
-Utils.getTargetMonthYearPostfixes = function(date) {
-  return [-1, 0, 1].map(function(offset) {
-    var d = new Date(date.getFullYear(), date.getMonth() + offset, 1);
-
-    return Utils.yearMonthPostfix(d);
-  });
 };
 
 Utils.hasYearMonthPostfix = function(sheetName) {
