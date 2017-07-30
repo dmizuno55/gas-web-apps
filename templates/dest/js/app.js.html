@@ -40,7 +40,7 @@ function setupCalendar($) {
 
     google.script.run.withSuccessHandler(function(result) {
       $('#calendar').fullCalendar({events: result.events});
-      $('#tmpl-adspot').tmpl(result.adSpots).appendTo('#side-nav');
+      $('#tmpl-adspot').tmpl({adSpots: result.adSpots}).appendTo('#side-nav');
     }).getAdSpotCalendar();
   });
 }
