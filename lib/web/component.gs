@@ -1,4 +1,7 @@
-function getAdSpots() {
+function Component() {
+}
+
+Component.getAdSpots = function() {
   var template = HtmlService
     .createTemplateFromFile('templates/components/adspot');
 
