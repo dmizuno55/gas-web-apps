@@ -1,9 +1,7 @@
 function App() {
-
 }
 
-function Model() {
-
+function Model() {  
 }
 
 function View() {
