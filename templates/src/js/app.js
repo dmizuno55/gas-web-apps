@@ -39,6 +39,7 @@ function setupCalendar($) {
 
     google.script.run.withSuccessHandler(function(result) {
       $('#calendar').fullCalendar('renderEvents', result.events);
+      $('#calendar').fullCalendar('renderEvents', []);
       $('#tmpl-adspot').tmpl({adSpots: result.adSpots}).appendTo('#side-nav');
     }).getAdSpotCalendar();
   });
