@@ -8,6 +8,7 @@ function View() {
 }
 
 function Controller() {
+  
 }
 
 function setupCalendar($) {
