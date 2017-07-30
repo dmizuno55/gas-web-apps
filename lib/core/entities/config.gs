@@ -13,7 +13,7 @@ Config.parse = function(sheet) {
     lastRow,
     Entry.DATA_COL_END);
 
-  var conifg = {
+  var config = {
     adSpots: []
   };
 
