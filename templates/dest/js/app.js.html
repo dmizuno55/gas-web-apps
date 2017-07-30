@@ -25,10 +25,8 @@ function setupCalendar($) {
       eventTextColor: '#000',
       events: function(start, end, timezone, callback) {
         google.script.run.withSuccessHandler(function(result) {
-          app.init(result);
-
-          callback(app.getVisibleEvents());
-        }).getEvents();
+          callback(result.events);
+        }).getAdSpotCalendar();
       },
       eventAfterRender: function(event, element) {
         var start = moment(event.start).format('M/D HH:mm');
