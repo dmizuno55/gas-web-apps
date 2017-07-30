@@ -38,3 +38,11 @@ gulp.task('gasconv:js', function() {
     }))
     .pipe(gulp.dest('templates/dest/js'));
 });
+
+gulp.task('gasconv:jq-templ', function() {
+  gulp.src('templates/src/js/**/*.tmpl')
+    .pipe(rename({
+      extname: '.tmpl.html'
+    }))
+    .pipe(gulp.dest('templates/dest/js'));
+});

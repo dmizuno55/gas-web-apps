@@ -14,6 +14,7 @@ function getAdSpotCalendar() {
   }, []);
 
   return {
-    events: events
+    events: events,
+    adSpots: Repository.getAdSpots()
   };
 }

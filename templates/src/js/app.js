@@ -42,4 +42,9 @@ function setupCalendar($) {
       }
     });
   });
+
+  google.script.run.withSuccessHandler(function(result) {
+    $('#calendar').fullCalendar('updateEvents', result.events);
+    $('#tmpl-adspot').tmpl(result.adSpots).appendTo('#side-nav');
+  }).getAdSpotCalendar();
 }
