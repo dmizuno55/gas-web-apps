@@ -4,14 +4,17 @@
 
 #side-nav {
   float: left;
-  width: 200px;
+  width: 120px;
+  position: fixed;
 }
 
 #adspot label {
-  width: 200px;
+  width: 120px;
   display: block;
+  font-size: 10px;
 }
 
 #main {
-  margin-left: 200px;
+  margin-left: 124px;
+  position: relative;
 }
