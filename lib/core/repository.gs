@@ -1,6 +1,15 @@
 function Repository() {
 }
 
+Repository.getEntries = function(sheetName) {
+  var sheet = SpreadsheetApp.getActive().getSheetByName(sheetName);
+  if (sheet === null) {
+    return [];
+  }
+
+  return Entry.parse(sheet);
+}
+
 Repository.getTargetEntries = function(date) {
   date = date || new Date();
 
@@ -37,24 +46,10 @@ Repository.getTargetEntries = function(date) {
   return map;
 };
 
-Repository.getAdSpots = function() {
+Repository.getConfig = function() {
   // TODO 必要なシートだけフィルタする
-  var sheets = SpreadsheetApp.getActive().getSheets();
+  var sheet = SpreadsheetApp.getActive().getSheetByName('設定');
 
-  var adSpots = [];
-  for (var i = 0; i < sheets.length; i++) {
-    var sheet = sheets[i];
-    var sheetName = sheet.getSheetName();
-
-    if (!Utils.isDataSheetName(sheetName)) {
-      continue;
-    }
-
-    adSpots.push({
-      name: Utils.getBaseName(sheetName),
-      color: sheet.getTabColor()
-    });
-  }
-
-  return adSpots;
+  var config = Config.parse(sheet);
+  return config;
 };

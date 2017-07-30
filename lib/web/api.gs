@@ -5,16 +5,24 @@ function doGet() {
   .setSandboxMode(HtmlService.SandboxMode.IFRAME);
 }
 
-function getAdSpotCalendar() {
-  var adSpots = Repository.getTargetEntries(new Date());
+function getEventSources() {
+  var config = Repository.getConfig();
+  var adSpots = config.adSpots;
+  var postfixes = Utils.getMonthYearPostfixes(new Date(), 1);
 
-  var events = Object.keys(adSpots).reduce(function(pre, adSpot) {
-    Array.prototype.push.apply(pre, adSpots[adSpot]);
+  return adSpots.reduce(function(pre, adSpot) {
+    var events = prefixes.reduce(function(list, postfix) {
+      var sheetName = adSpot.name + postfix;
+      Array.prototype.push.apply(list, Repository.getEntries(sheetName););
+      return list;
+    }, []);
+
+    pre[adSpot.name] = {
+      id: adSpot.name,
+      color: adSpot.color,
+      events: events
+    };
+
     return pre;
-  }, []);
-
-  return {
-    events: events,
-    adSpots: Repository.getAdSpots()
-  };
+  }, {});
 }

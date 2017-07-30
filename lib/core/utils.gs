@@ -2,11 +2,22 @@ function Utils() {
 }
 
 Utils.isDataSheetName = function(sheetName) {
-  return /_\d{6}$/.test(sheetName);
+  return Utils.hasYearMonthPostfix(sheetName);
 };
 
 Utils.endsWith = function(str, searchWord) {
   return str.indexOf(searchWord) === str.length - searchWord.length;
+};
+
+Utils.getMonthYearPostfixes = function(date, range) {
+  var prefixes = [];
+  for (var i = range * -1; i < range; i++) {
+    var d = new Date(date.getFullYear(), date.getMonth() + offset, 1);
+
+    prefixes.push(Utils.yearMonthPostfix(d));
+  }
+
+  return prefixes;
 };
 
 Utils.getTargetMonthYearPostfixes = function(date) {

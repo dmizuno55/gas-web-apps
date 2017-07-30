@@ -1,46 +1,53 @@
 function App() {
+  this.eventSources = {};
 }
 
-function Model() {
-}
+App.prototype.setUp = function($) {
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+    timeFormat: 'HH:mm',
+    timezone: 'local',
+    navLinks: true,
+    eventTextColor: '#000',
+    eventAfterRender: function(event, element) {
+      var start = moment(event.start).format('M/D HH:mm');
+      var end = moment(event.end).format('M/D HH:mm');
+      element.qtip({
+        content: {
+          title: event.title,
+          text: '期間: ' + start + ' - ' + end
+        },
+        position: {
+          at: 'center left',
+        },
+      });
+    }
+  });
 
-function View() {
-}
+  google.script.run.withSuccessHandler(function(result) {
+    app.eventSources = result;
+    for (var adSpot in result) {
+      $('#calendar').fullCalendar('addEventSource', result[adSpot]);
+    }
+  }).getEventSources();
 
-function Controller() {
-}
+  $('#adspot input').click(function() {
+    if ($(this).prop('checked')) {
+      var eventSource = app.eventSources[$(this).val()];
+      $('#calendar').fullCalendar('addEventSource', eventSource);
+    } else {
+      $('#calendar').fullCalendar('removeEventSource', $(this).val());
+    }
+  });
 
-function setupCalendar($) {
-  $(document).ready(function() {
-    $('#calendar').fullCalendar({
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay'
-      },
-      timeFormat: 'HH:mm',
-      timezone: 'local',
-      navLinks: true,
-      eventTextColor: '#000',
-      eventAfterRender: function(event, element) {
-        var start = moment(event.start).format('M/D HH:mm');
-        var end = moment(event.end).format('M/D HH:mm');
-        element.qtip({
-          content: {
-            title: event.title,
-            text: '期間: ' + start + ' - ' + end
-          },
-          position: {
-            at: 'center left',
-          },
-        });
-      }
-    });
-
-    google.script.run.withSuccessHandler(function(result) {
-      $('#calendar').fullCalendar('renderEvents', result.events);
-      $('#calendar').fullCalendar('renderEvents', []);
-      $('#tmpl-adspot').tmpl({adSpots: result.adSpots}).appendTo('#side-nav');
-    }).getAdSpotCalendar();
+  $('#toggle-all-event').click(function() {
+    $('#calendar').fullCalendar('option', 'eventLimit', !$(this).prop('checked'));
   });
 }
+
+// @global
+var app = new App();
