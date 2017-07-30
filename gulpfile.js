@@ -1,6 +1,6 @@
 var path = require('path');
 var gulp = require('gulp');
-var clean = require('gulp-clean');
+var del = require('del');
 var transform = require('gulp-transform');
 var rename = require('gulp-rename');
 
@@ -17,9 +17,8 @@ function toHtml_(content, file) {
 
 gulp.task('default', ['clean', 'gasconv:js', 'gasconv:css']);
 
-gulp.task('clean', function() {
-  gulp.src('templates/dest/*')
-    .pipe(clean());
+gulp.task('clean', function(cb) {
+  del.sync('templates/dest/*');
 });
 
 gulp.task('gasconv:css', function() {
@@ -28,7 +27,7 @@ gulp.task('gasconv:css', function() {
     .pipe(rename({
       extname: '.css.html'
     }))
-    .pipe(gulp.dest('templates/dest/css'))
+    .pipe(gulp.dest('templates/dest/css'));
 });
 
 gulp.task('gasconv:js', function() {
@@ -37,5 +36,5 @@ gulp.task('gasconv:js', function() {
     .pipe(rename({
       extname: '.js.html'
     }))
-    .pipe(gulp.dest('templates/dest/js'))
+    .pipe(gulp.dest('templates/dest/js'));
 });

@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "del": "^3.0.0",
     "git-hooks": "^1.1.8",
     "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
     "gulp-rename": "^1.2.2",
     "gulp-transform": "^3.0.5"
   }
