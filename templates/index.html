@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <?!= TemplateLoader.load('templates/dist/css/vender/fullcalendar.min.css') ?>
+  <?!= TemplateLoader.load('templates/dist/css/vender/jquery.qtip.min.css') ?>
+  <?!= TemplateLoader.load('templates/dist/css/vender/style.css') ?>
+  <?!= TemplateLoader.load('templates/dist/js/vender/moment.js') ?>
+  <?!= TemplateLoader.load('templates/dist/js/vender/jquery-2.2.4.min.js') ?>
+  <?!= TemplateLoader.load('templates/dist/js/vender/fullcalendar.min.js') ?>
+  <?!= TemplateLoader.load('templates/dist/js/vender/fullcalendar.locale.ja.js') ?>
+  <?!= TemplateLoader.load('templates/dist/js/vender/jquery.qtip.min.js') ?>
+  <?!= TemplateLoader.load('templates/dist/js/app.js') ?>
+</head>
+<body>
+  <div id="calendar"></div>
+  <script type="text/javascript">
+  setupCalendar($);
+  </script>
+</body>
+</html>
