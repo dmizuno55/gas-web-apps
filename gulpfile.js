@@ -15,7 +15,7 @@ function toHtml_(content, file) {
   }
 }
 
-gulp.task('default', ['clean', 'gasconv:js', 'gasconv:css']);
+gulp.task('default', ['clean', 'gasconv:js', 'gasconv:css', 'gasconv:jq-tmpl']);
 
 gulp.task('clean', function(cb) {
   del.sync('templates/dest/*');
@@ -39,7 +39,7 @@ gulp.task('gasconv:js', function() {
     .pipe(gulp.dest('templates/dest/js'));
 });
 
-gulp.task('gasconv:jq-templ', function() {
+gulp.task('gasconv:jq-tmpl', function() {
   gulp.src('templates/src/js/**/*.tmpl')
     .pipe(rename({
       extname: '.tmpl.html'
