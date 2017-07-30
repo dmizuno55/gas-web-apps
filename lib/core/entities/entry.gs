@@ -1,7 +1,7 @@
 function Entry() {
 }
 
-Entry.DATA_ROW_START = 1;
+Entry.DATA_ROW_START = 2;
 Entry.DATA_COL_START = 1;
 Entry.DATA_COL_END = 15;
 
