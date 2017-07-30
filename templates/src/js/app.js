@@ -36,7 +36,7 @@ function setupCalendar($) {
             text: '期間: ' + start + ' - ' + end
           },
           position: {
-            at: 'bottom left',
+            at: 'center left',
           },
         });
       }
