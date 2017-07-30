@@ -58,7 +58,11 @@ App.prototype.setUp = function($) {
 
   $('#js-search-button').click(function() {
     var searchText = $('#js-search-text').val();
-    self.searchPattern = new RegExp(searchText);
+    if (searchText) {
+      self.searchPattern = new RegExp(searchText);
+    } else {
+      self.searchPattern = null;
+    }
     $('#calendar').fullCalendar('rerenderEvents');
   });
 }
