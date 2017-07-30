@@ -1,5 +1,6 @@
 function App() {
   this.eventSources = {};
+  this.searchPattern = null;
 }
 
 App.prototype.setUp = function($) {
@@ -14,6 +15,13 @@ App.prototype.setUp = function($) {
     navLinks: true,
     eventTextColor: '#000',
     eventLimit: true,
+    eventRender: function(event, element, view) {
+      if (this.searchText === null) {
+        return true;
+      }
+
+      return this.searchPattern.test(event.title);
+    },
     eventAfterRender: function(event, element) {
       var start = moment(event.start).format('M/D HH:mm');
       var end = moment(event.end).format('M/D HH:mm');
@@ -30,12 +38,12 @@ App.prototype.setUp = function($) {
   });
 
   var self = this;
-  
+
   google.script.run.withSuccessHandler(function(result) {
     self.eventSources = result;
   }).getEventSources();
 
-  $('#adspot input').click(function() {
+  $('.js-adspot').click(function() {
     if ($(this).prop('checked')) {
       var eventSource = self.eventSources[$(this).val()];
       $('#calendar').fullCalendar('addEventSource', eventSource);
@@ -44,8 +52,14 @@ App.prototype.setUp = function($) {
     }
   });
 
-  $('#toggle-all-event').click(function() {
+  $('#js-toggle-all').click(function() {
     $('#calendar').fullCalendar('option', 'eventLimit', !$(this).prop('checked'));
+  });
+
+  $('#js-search-button').click(function() {
+    var searchText = $('#js-search-text').val();
+    self.searchPattern = new RegExp(searchText);
+    $('#calendar').fullCalendar('rerenderEvents');
   });
 }
 
