@@ -38,8 +38,7 @@ function setupCalendar($) {
     });
 
     google.script.run.withSuccessHandler(function(result) {
-      $('#calendar').fullCalendar({events: result.events});
-      $('#calendar').fullCalendar('renderEvents');
+      $('#calendar').fullCalendar('renderEvents', result.events);
       $('#tmpl-adspot').tmpl({adSpots: result.adSpots}).appendTo('#side-nav');
     }).getAdSpotCalendar();
   });
