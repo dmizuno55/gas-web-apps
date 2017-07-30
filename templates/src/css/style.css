@@ -1,0 +1,12 @@
+#container {
+  width: 98%;
+}
+
+#side-nav {
+  float: left;
+  width: 100px;
+}
+
+#main {
+  margin-left: 100px;
+}
