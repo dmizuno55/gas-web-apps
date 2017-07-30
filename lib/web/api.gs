@@ -11,7 +11,7 @@ function getEventSources() {
   var postfixes = Utils.getMonthYearPostfixes(new Date(), 1);
 
   return adSpots.reduce(function(pre, adSpot) {
-    var events = prefixes.reduce(function(list, postfix) {
+    var events = postfixes.reduce(function(list, postfix) {
       var sheetName = adSpot.name + postfix;
       Array.prototype.push.apply(list, Repository.getEntries(sheetName));
       return list;
