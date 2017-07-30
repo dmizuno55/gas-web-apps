@@ -18,7 +18,7 @@ function toHtml_(content, file) {
 gulp.task('default', ['clean', 'gasconv:js', 'gasconv:css']);
 
 gulp.task('clean', function() {
-  gulp.src('templates/dest')
+  gulp.src('templates/dest/*')
     .pipe(clean());
 });
 
