@@ -8,7 +8,7 @@ function doGet() {
 function getAdSpotCalendar() {
   var adSpots = Repository.getTargetEntries(new Date());
 
-  var events = adSpots.reduce(function(pre, adSpot) {
+  var events = Object.keys(adSpots).reduce(function(pre, adSpot) {
     Array.prototype.push.apply(pre, adSpots[adSpot]);
     return pre;
   }, []);
