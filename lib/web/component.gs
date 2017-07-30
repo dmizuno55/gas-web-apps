@@ -10,5 +10,6 @@ Component.getAdSpots = function() {
   template.adSpots = config.adSpots;
 
   return template.evaluate()
-    .setSandboxMode(HtmlService.SandboxMode.IFRAME);
+    .setSandboxMode(HtmlService.SandboxMode.IFRAME)
+    .getContent();
 }
