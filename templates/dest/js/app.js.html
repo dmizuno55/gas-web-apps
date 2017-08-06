@@ -1,4 +1,35 @@
 <script type="text/javascript">
+function Event(sender) {
+  this.listeners = [];
+  this.sender = sender;
+}
+
+Event.prototype = {
+  attach: function(listner) {
+    this.listeners.push(listener);
+  },
+  notify: function(args) {
+    this.listeners.forEach(function(listener) {
+      listener.call(this.sender, args);
+    });
+  }
+};
+
+function Model() {
+  this.searchWord = null;
+  this.visible = {};
+  this.eventSources = {};
+  this.term = null;
+}
+
+Model.prototype = {
+  moveTerm: function(term) {
+    if (this.term.start > term.start || this.term.end < term.end) {
+      var base = this.term.start > term.start ? term.start : term.end;
+    }
+  },
+};
+
 function App() {
   this.eventSources = {};
   this.searchPattern = null;

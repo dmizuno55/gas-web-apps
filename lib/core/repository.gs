@@ -1,5 +1,4 @@
-function Repository() {
-}
+var Repository = {};
 
 Repository.getEntries = function(sheetName) {
   var sheet = SpreadsheetApp.getActive().getSheetByName(sheetName);
@@ -12,8 +11,7 @@ Repository.getEntries = function(sheetName) {
 
 Repository.getConfig = function() {
   // TODO 必要なシートだけフィルタする
-  var sheet = SpreadsheetApp.getActive().getSheetByName('設定');
+  var sheet = SpreadsheetApp.getActive().getSheetByName('setting');
 
-  var config = Config.parse(sheet);
-  return config;
+  return Config.parse(sheet);
 };
