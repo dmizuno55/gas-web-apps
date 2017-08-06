@@ -1,7 +1,7 @@
 var Config = (function() {
-  DATA_ROW_START = 2;
-  DATA_COL_START = 1;
-  DATA_COL_END = 2;
+  var DATA_ROW_START = 2;
+  var DATA_COL_START = 1;
+  var DATA_COL_END = 2;
 
   function parse(sheet) {
     var lastRow = sheet.getLastRow();

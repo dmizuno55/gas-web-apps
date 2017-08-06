@@ -1,7 +1,7 @@
 var Entry = (function() {
-  DATA_ROW_START = 1;
-  DATA_COL_START = 1;
-  DATA_COL_END = 15;
+  var DATA_ROW_START = 1;
+  var DATA_COL_START = 1;
+  var DATA_COL_END = 15;
 
   function dateTime_(d, t) {
     if (!d) {
