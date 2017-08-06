@@ -44,7 +44,7 @@ gulp.task('gasconv:css', function() {
 
 gulp.task('gasconv:js', function() {
   gulp.src([
-    'jquery-2.4.4.min.js',
+    'jquery-2.2.4.min.js',
     'moment.min.js',
     'fullcalendar.min.js',
     'fllcalendar.locale.ja.js',
