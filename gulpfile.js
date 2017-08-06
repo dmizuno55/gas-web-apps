@@ -23,7 +23,10 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('gasconv:css', function() {
-  gulp.src('templates/src/css/vender/*.css')
+  gulp.src([
+    'fullcalendar.min.css',
+    'jquery.qtip.min.css'
+  ], {cwd: 'templates/src/css/vender/'})
     .pipe(concat('vender.css'))
     .pipe(transform('utf8', toHtml_))
     .pipe(rename({
@@ -40,7 +43,13 @@ gulp.task('gasconv:css', function() {
 });
 
 gulp.task('gasconv:js', function() {
-  gulp.src('templates/src/js/vender/*.js')
+  gulp.src([
+    'jquery-2.4.4.min.js',
+    'moment.min.js',
+    'fullcalendar.min.js',
+    'fllcalendar.locale.ja.js',
+    'jquery.qtip.min.js'
+  ], {cwd: 'templates/src/js/vender'})
     .pipe(concat('vender.js'))
     .pipe(transform('utf8', toHtml_))
     .pipe(rename({
