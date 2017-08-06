@@ -8,14 +8,9 @@ function doGet() {
 function getEventSources() {
   var config = Repository.getConfig();
   var adSpots = config.adSpots;
-  var postfixes = Utils.getMonthYearPostfixes(new Date(), 1);
 
   return adSpots.reduce(function(pre, adSpot) {
-    var events = postfixes.reduce(function(list, postfix) {
-      var sheetName = adSpot.name + postfix;
-      Array.prototype.push.apply(list, Repository.getEntries(sheetName));
-      return list;
-    }, []);
+    var events = Repository.getEntries(adSpot.name);
 
     pre[adSpot.name] = {
       id: adSpot.name,

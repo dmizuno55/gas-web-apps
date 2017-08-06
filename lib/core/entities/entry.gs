@@ -18,8 +18,8 @@ var Entry = (function() {
     return {
       team: row[1],
       title: row[2],
-      start: dateTime_(row[8], row[9]).getTime(),
-      end: dateTime_(row[10], row[11]).getTime(),
+      start: dateTime_(row[7], row[8]).getTime(),
+      end: dateTime_(row[9], row[10]).getTime(),
       adSpot: adSpot
     };
   }
