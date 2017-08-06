@@ -16,7 +16,11 @@
       <div id="option-box">
         <label><input type="checkbox" id="js-toggle-all">全て表示</label>
       </div>
-      <?!= Component.getAdSpots() ?>
+      <? for (var i = 0; i < adSpots.length; i++) { ?>
+      <label style="background-color:<?= adSpots[i].color ?>;">
+        <input type="checkbox" value="<?= adSpots[i].name ?>" class="js-adspot"><?= adSpots[i].name ?>
+      </label>
+      <? } ?>
     </div>
     <div id="main">
       <div id="calendar"></div>

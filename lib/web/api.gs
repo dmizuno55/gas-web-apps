@@ -1,8 +1,12 @@
 function doGet() {
-  return HtmlService
-  .createTemplateFromFile('templates/index')
-  .evaluate()
-  .setSandboxMode(HtmlService.SandboxMode.IFRAME);
+  var config = Repository.getConfig();
+
+  var template = HtmlService.createTemplateFromFile('templates/index');
+  template.adSpots = config.adSpots;
+  
+  return template
+    .evaluate()
+    .setSandboxMode(HtmlService.SandboxMode.IFRAME);
 }
 
 function getEventSources() {
