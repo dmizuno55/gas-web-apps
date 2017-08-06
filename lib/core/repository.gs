@@ -1,5 +1,5 @@
 var Repository = (function() {
-  var ss = SpreadsheetApp.openById('14stnHK34CIIGKGQJCkMrNvktBDNxd6e1qRJOQIs1n94'):
+  var ss = SpreadsheetApp.openById('14stnHK34CIIGKGQJCkMrNvktBDNxd6e1qRJOQIs1n94');
 
   function getEntries(sheetName) {
     var sheet = ss.getSheetByName(sheetName);
